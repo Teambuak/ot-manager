@@ -40,7 +40,42 @@
 </nav>
 @stop
 @section('content')
-<!-- body contents -->
+<div class="container">
+    <div class="col-md-5">
+
+    </div>
+    <div class="col-md-7">
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                  Match History
+                </a>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Team</th>
+                        <th>Hero</th>
+                        <th>Items</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Blue</td>
+                        <td>Caitlyn</td>
+                        <td>Items</td>
+                    </tr>
+                </table>
+              </div>
+             </div>
+            </div>
+          </div>
+    </div>
+</div>
 @stop
 @section('footer')
 <!-- footer contents -->
