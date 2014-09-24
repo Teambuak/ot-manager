@@ -1,0 +1,32 @@
+.profile-picture{
+    border: 1px solid gainsboro;
+    height: 250px;
+    width: 250px;
+    margin-left: 15%;
+    border-radius: 8px;
+}
+.region{
+    margin-top:20px;
+}
+.region label{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.custom-dropdown{
+    border:1px solid darkgray;
+    height: 25px;
+    border-radius: 5px;
+
+}
+.day{
+    border:1px solid darkgray;
+    height: 25px;
+    border-radius: 5px;
+    width: 40px;
+}
+.month{
+    border:1px solid darkgray;
+    height: 25px;
+    border-radius: 5px;
+    width: 60px;
+}
