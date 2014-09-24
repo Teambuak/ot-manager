@@ -40,13 +40,20 @@
 </nav>
 @stop
 @section('content')
-<div class="container">
+<div class="container" style="text-align: center;">
     <div class="col-md-5">
 
     </div>
     <div class="col-md-7">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Add Game</h3>
+          </div>
+          <div class="panel-body">
+          </div>
+         </div>
         <div class="panel-group" id="accordion">
-          <div class="panel panel-default">
+          <div class="panel panel-primary">
             <div class="panel-heading">
               <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
@@ -56,20 +63,33 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse in">
               <div class="panel-body">
+              <div class="row">
                 <table class="table">
                     <tr>
                         <th>#</th>
-                        <th>Team</th>
+                        <th>K/D/A</th>
                         <th>Hero</th>
+                        <th>Match End</th>
                         <th>Items</th>
+                        <th>note</th>
                     </tr>
-                    <tr>
+                    <tr class="table-tr" style="background-color: lightgreen">
                         <td>1</td>
-                        <td>Blue</td>
-                        <td>Caitlyn</td>
-                        <td>Items</td>
+                        <td>25/3/8</td>
+                        <td><img src="http://ddragon.leagueoflegends.com/cdn/4.15.1/img/champion/Caitlyn.png" style="width: 25px; height:25px;"></td>
+                        <td>40 min.</td>
+                        <td><img src="http://ddragon.leagueoflegends.com/cdn/4.15.1/img/champion/Caitlyn.png" style="width: 25px; height:25px;">
+                            <img src="http://ddragon.leagueoflegends.com/cdn/4.15.1/img/champion/Caitlyn.png" style="width: 25px; height:25px;">
+                            <img src="http://ddragon.leagueoflegends.com/cdn/4.15.1/img/champion/Caitlyn.png" style="width: 25px; height:25px;">
+                            <img src="http://ddragon.leagueoflegends.com/cdn/4.15.1/img/champion/Caitlyn.png" style="width: 25px; height:25px;">
+                            <img src="http://ddragon.leagueoflegends.com/cdn/4.15.1/img/champion/Caitlyn.png" style="width: 25px; height:25px;">
+                            <img src="http://ddragon.leagueoflegends.com/cdn/4.15.1/img/champion/Caitlyn.png" style="width: 25px; height:25px;">
+                            <img src="http://ddragon.leagueoflegends.com/cdn/4.15.1/img/champion/Caitlyn.png" style="width: 25px; height:25px;">
+                        </td>
+                        <td style="text-align: center;"><span class="glyphicon glyphicon-file"></span></td>
                     </tr>
                 </table>
+                </div>
               </div>
              </div>
             </div>

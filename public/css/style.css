@@ -41,3 +41,7 @@
     width:50%;
     margin:0 auto;
 }
+.table-tr td:nth-child(6) span:hover{
+    cursor: pointer;
+    color: white;
+}
