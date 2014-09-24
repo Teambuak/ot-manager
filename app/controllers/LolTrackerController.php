@@ -28,9 +28,18 @@ class LolTrackerController extends \BaseController {
     /**
      *Register new user
      */
-    public function login()
+    public function login_view()
     {
         return View::make('login');
+    }
+    public function login(){
+        if (Auth::attempt(array('username' => Input::get('username'), 'password' => Input::get('password')))){
+            return View::make('index');
+        }
+
+        return Redirect::back()->with(['error'=>'Invalid Username or Password']);
+
+
     }
 
     /**
@@ -52,9 +61,9 @@ class LolTrackerController extends \BaseController {
                 'year' => Input::get('year')
             ),
             array(
-                'username' => 'Required|Min:6|alpha_num',
+                'username' => 'Required|Min:6|alpha_num|unique:users',
                 'password' => 'Required|Min:6',
-                'email' => 'required|email|Min:3|Max:80',
+                'email' => 'required|email|Min:3|Max:80|unique:users',
                 'firstname' => 'required',
                 'lastname' => 'required|alpha',
                 'day' => 'required|numeric',
@@ -64,6 +73,7 @@ class LolTrackerController extends \BaseController {
         if ($validator->fails()) {
 
             return Redirect::back()->with(['errors' => $validator->messages()]);
+
         }
 
         $user = new User;
@@ -78,6 +88,9 @@ class LolTrackerController extends \BaseController {
 
         return Redirect::back()->with(['success' => 'Successfully Registered!','success'=>'Registered Successfully']);
 
+    }
+    public function matches(){
+        return View::make('matches');
     }
 
     /**
@@ -126,6 +139,10 @@ class LolTrackerController extends \BaseController {
     public function destroy($id)
     {
         //
+    }
+    public function logout(){
+        Auth::logout();
+        return View::make('index');
     }
 
 }

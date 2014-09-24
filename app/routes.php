@@ -11,5 +11,8 @@
 |
 */
 
-Route::Get('login','LolTrackerController@login');
+Route::Get('login','LolTrackerController@login_view');
+Route::Get('logout','LolTrackerController@logout');
+Route::Get('matches','LolTrackerController@matches');
+Route::Post('login','LolTrackerController@login');
 Route::Resource('/','LolTrackerController');

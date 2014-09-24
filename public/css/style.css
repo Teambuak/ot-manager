@@ -33,3 +33,11 @@
 .error{
     color:red;
 }
+.login-form{
+    width: 250px;
+    margin:0 auto;
+}
+.input-group{
+    width:50%;
+    margin:0 auto;
+}

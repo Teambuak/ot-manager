@@ -17,11 +17,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/">Home</a></li>
          @if(!Auth::check())
             <li><a href="/create">Register</a></li>
          @else
-            <li><a href="/matches">My Matches</a></li>
+            <li class="active"><a href="/matches">My Matches</a></li>
          @endif
       </ul>
       @if(Auth::check())

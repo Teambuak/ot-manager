@@ -29,13 +29,10 @@
 </nav>
 @stop
 @section('content')
-<div class="container">
+<div class="container" style="text-align: center;">
     {{Form::open(['url'=>'/']);}}
 
-            <div class="col-md-4" style="text-align: center;">
-                <div class="profile-picture">photo</div>
-            </div>
-            <div class="col-md-8">
+            <div class="col-md-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
                 <h3 class="panel-title">Account Info</h3>
