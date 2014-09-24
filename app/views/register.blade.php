@@ -45,19 +45,19 @@
                   <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                   <input type="text" class="form-control" name="username" placeholder="Username" required>
                 </div>
-                 {{$errors->first('username')}}
+                  <span class="error">{{$errors->first('username')}}</span>
                 <br>
                 <div class="input-group">
                   <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                   <input type="password" class="form-control" name="password" placeholder="Password" required>
                 </div>
-                 {{$errors->first('password');}}
+                  <span class="error">{{$errors->first('password');}}</span>
                 <br>
                 <div class="input-group">
                   <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
                   <input type="text" class="form-control" name="email" placeholder="Email" required email>
                 </div>
-                {{$errors->first('email');}}
+                 <span class="error">{{$errors->first('email');}}</span>
                 <div class="region">
                     <label for="region">Region:</label>
                     <select class="custom-dropdown" name="region">
@@ -81,13 +81,13 @@
                       <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                       <input type="text" class="form-control" name="firstname" placeholder="First Name" required>
                     </div>
-                    {{$errors->first('firstname');}}
+                     <span class="error">{{$errors->first('firstname');}}</span>
                     <br>
                     <div class="input-group">
                       <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                       <input type="text" class="form-control" name="lastname" placeholder="Last Name" required>
                     </div>
-                    {{$errors->first('lastname');}}
+                     <span class="error">{{$errors->first('lastname');}}</span>
                     <br>
                     <label style="margin-right:20px;">Date of Birth:</label>
                      <select class="custom-dropdown" name="month">
@@ -104,19 +104,23 @@
                         <option value="November">November</option>
                         <option value="December">December</option>
                      </select>
-                     <input class="day" type="text" class="day" name="day" placeholder="dd" required>,
-                     <input class="month" type="text" class="year" name="year" placeholder="yyyy" required>
-                     {{$errors->first('day'); $errors->first('year');}}
+                     <input class="day" type="text" class="day" name="day" placeholder="dd" maxlength="2" required>,
+                     <input class="month" type="text" class="year" name="year" placeholder="yyyy" maxlength="4" required><br>
+                     <span class="error">{{$errors->first('day'); $errors->first('year');}}</span>
                     </div>
                 </div>
-
+                @if(Session::has('success'))
+                <div class="alert alert-success fade in" role="alert" style="text-align:center;"> <span class="glyphicon glyphicon-ok"></span>
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true"><span class="glyphicon glyphicon-remove"></span></span><span class="sr-only"></span></button>
+                {{Session::get('success');}}
+                </div>
+               @endif
                 <div class="btn-group">
                   <button type="submit" class="btn btn-primary">
-                    Submit
+                    Register
                   </button>
                 </div>
           </div>
-
     {{Form::close();}}
 </div>
 

@@ -2,27 +2,28 @@
 
 class LolTrackerController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /loltracker
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		return View::make('index');
-	}
+    /**
+     * Display a listing of the resource.
+     * GET /loltracker
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        return View::make('index');
+    }
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /loltracker/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return View::make('register');
-	}
+    /**
+     * Show the form for creating a new resource.
+     * GET /loltracker/create
+     *
+     * @return Response
+     */
+    public function create()
+    {
+
+        return View::make('register');
+    }
 
     /**
      *Register new user
@@ -32,14 +33,14 @@ class LolTrackerController extends \BaseController {
         return View::make('login');
     }
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /loltracker
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
+    /**
+     * Store a newly created resource in storage.
+     * POST /loltracker
+     *
+     * @return Response
+     */
+    public function store()
+    {
         $validator = Validator::make(
             array(
                 'username' => Input::get('username'),
@@ -49,11 +50,10 @@ class LolTrackerController extends \BaseController {
                 'lastname' => Input::get('lastname'),
                 'day' => Input::get('day'),
                 'year' => Input::get('year')
-
             ),
             array(
-                'username' => 'Required|Min:6',
-                'password'=> 'Required|Min:6',
+                'username' => 'Required|Min:6|alpha_num',
+                'password' => 'Required|Min:6',
                 'email' => 'required|email|Min:3|Max:80',
                 'firstname' => 'required',
                 'lastname' => 'required|alpha',
@@ -66,56 +66,66 @@ class LolTrackerController extends \BaseController {
             return Redirect::back()->with(['errors' => $validator->messages()]);
         }
 
-        return Input::all();
+        $user = new User;
+        $user->username = Input::get('username');
+        $user->password = Hash::make(Input::get('password'));
+        $user->email = Input::get('email');
+        $user->region = Input::get('region');
+        $user->firstname = Input::get('firstname');
+        $user->lastname = Input::get('lastname');
+        $user->birthdate = Input::get('month') . ' ' . Input::get('day') . ', ' . Input::get('year');
+        $user->save();
 
-	}
+        return Redirect::back()->with(['success' => 'Successfully Registered!','success'=>'Registered Successfully']);
 
-	/**
-	 * Display the specified resource.
-	 * GET /loltracker/{id}
-	 *
-	 *
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
+    }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /loltracker/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
+    /**
+     * Display the specified resource.
+     * GET /loltracker/{id}
+     *
+     *
+     * @return Response
+     */
+    public function show($id)
+    {
+        //
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /loltracker/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
+    /**
+     * Show the form for editing the specified resource.
+     * GET /loltracker/{id}/edit
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /loltracker/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
+    /**
+     * Update the specified resource in storage.
+     * PUT /loltracker/{id}
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function update($id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * DELETE /loltracker/{id}
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 
 }

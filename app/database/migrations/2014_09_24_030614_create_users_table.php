@@ -12,7 +12,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('user', function(Blueprint $table)
+		Schema::create('users', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('username');
@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration {
             $table->string('region');
             $table->string('firstname');
             $table->string('lastname');
+            $table->string('birthdate');
 			$table->timestamps();
 		});
 	}
@@ -33,7 +34,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('user');
+		Schema::drop('users');
 	}
 
 }
