@@ -1,21 +1,5 @@
 @extends('layouts.default')
 @section('header')
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">LoL Tracker</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li ><a href="/">Home</a></li>
             <li class="active"><a href="/create">Register</a></li>
@@ -23,10 +7,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/login">Login</a></li>
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </div>
-</nav>
+
 @stop
 @section('content')
 <div class="container" style="text-align: center;">
@@ -55,18 +36,12 @@
                   <input type="text" class="form-control" name="email" placeholder="Email" required email>
                 </div>
                  <span class="error">{{$errors->first('email');}}</span>
-                <div class="region">
-                    <label for="region">Region:</label>
-                    <select class="custom-dropdown" name="region">
-                        <option value="NA">NA</option>
-                        <option value="EUWest">EU West</option>
-                        <option value="EUEast">EU Eest</option>
-                        <option value="Korea">KR</option>
-                        <option value="China">CN</option>
-                        <option value="SEA">SEA</option>
-                        <option value="other">Others</option>
-                    </select>
+                 <br>
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-briefcase"></span></span>
+                  <input type="text" class="form-control" name="company" placeholder="Company" required>
                 </div>
+                <span class="error">{{$errors->first('company');}}</span>
                 </div>
                 </div>
                 <div class="panel panel-primary">

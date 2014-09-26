@@ -1,6 +1,6 @@
 <?php
 
-class LolTrackerController extends \BaseController {
+class OtManagerController extends \BaseController {
 
     /**
      * Display a listing of the resource.
@@ -58,7 +58,8 @@ class LolTrackerController extends \BaseController {
                 'firstname' => Input::get('firstname'),
                 'lastname' => Input::get('lastname'),
                 'day' => Input::get('day'),
-                'year' => Input::get('year')
+                'year' => Input::get('year'),
+                'company' => Input::get('company')
             ),
             array(
                 'username' => 'Required|Min:6|alpha_num|unique:users',
@@ -68,6 +69,7 @@ class LolTrackerController extends \BaseController {
                 'lastname' => 'required|alpha',
                 'day' => 'required|numeric',
                 'year' => 'required|numeric',
+                'company' => 'required',
             )
         );
         if ($validator->fails()) {
@@ -80,7 +82,7 @@ class LolTrackerController extends \BaseController {
         $user->username = Input::get('username');
         $user->password = Hash::make(Input::get('password'));
         $user->email = Input::get('email');
-        $user->region = Input::get('region');
+        $user->company = Input::get('company');
         $user->firstname = Input::get('firstname');
         $user->lastname = Input::get('lastname');
         $user->birthdate = Input::get('month') . ' ' . Input::get('day') . ', ' . Input::get('year');

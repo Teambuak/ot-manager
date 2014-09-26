@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'lol-tracker',
+			'database'  => 'ot-manager',
 			'username'  => 'root',
 			'password'  => 'mysql',
 			'charset'   => 'utf8',

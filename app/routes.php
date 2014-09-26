@@ -11,8 +11,8 @@
 |
 */
 
-Route::Get('login','LolTrackerController@login_view');
-Route::Get('logout','LolTrackerController@logout');
-Route::Get('matches','LolTrackerController@matches');
-Route::Post('login','LolTrackerController@login');
-Route::Resource('/','LolTrackerController');
+Route::Get('login','OtManagerController@login_view');
+Route::Get('logout','OtManagerController@logout');
+Route::Get('overtime','OtManagerController@matches');
+Route::Post('login','OtManagerController@login');
+Route::Resource('/','OtManagerController');
