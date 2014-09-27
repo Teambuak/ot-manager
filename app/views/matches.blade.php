@@ -23,27 +23,7 @@
 @stop
 @section('content')
 <div class="container" style="text-align: center;">
-    <div class="col-md-7">
-        {{--<div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Add Overtime</h3>
-          </div>
-          <div class="panel-body">
-            <div class="input-group">
-              <input type="text" class="form-control" id="basic_example_1" placeholder="OT Start">
-              <span class="input-group-addon" ><span class="glyphicon glyphicon-calendar"></span></span>
-            </div><br>
-            <div class="input-group">
-              <input type="text" class="form-control" id="basic_example_1" placeholder="OT Ends">
-              <span class="input-group-addon" ><span class="glyphicon glyphicon-calendar"></span></span>
-            </div><br>
-            <div class="btn-group">
-              <button type="button" class="btn btn-primary dropdown-toggle">
-                Add
-              </button>
-            </div>
-          </div>
-         </div>--}}
+    <div class="col-md-9">
          <div class="panel-group" id="accordion">
            <div class="panel panel-primary">
              <div class="panel-heading">
@@ -54,7 +34,11 @@
              </div>
              <div id="collapseOne" class="panel-collapse collapse in">
                <div class="panel-body">
-                  <div class="col-md-7">
+                  <div class="col-md-5">
+                     <div class="input-group time">
+                       <input type="text" class="form-control" id="basic_example_date" placeholder="OT Date">
+                       <span class="input-group-addon" ><span class="glyphicon glyphicon-calendar"></span></span>
+                     </div><br>
                      <div class="input-group time">
                        <input type="text" class="form-control" id="basic_example_1" placeholder="OT Start">
                        <span class="input-group-addon" ><span class="glyphicon glyphicon-calendar"></span></span>
@@ -63,14 +47,30 @@
                        <input type="text" class="form-control" id="basic_example_2" placeholder="OT Ends">
                        <span class="input-group-addon" ><span class="glyphicon glyphicon-calendar"></span></span>
                      </div><br>
+                     <div class="input-group time">
+                        <textarea class="form-control" id="basic_example_description" style="resize: none;" placeholder="Work Description"></textarea>
+                        <span class="input-group-addon" ><span class="glyphicon glyphicon-calendar"></span></span>
+                      </div><br>
                      <div class="btn-group">
-                       <button type="button" class="btn btn-primary dropdown-toggle">
+                       <button type="button" id="add-ot" class="btn btn-primary dropdown-toggle">
                          Add
                        </button>
                      </div>
                  </div>
-                 <div class="col-md-5">
-                 Total Time:
+                 <div class="col-md-7 description">
+                 OT Description:
+                    <table class="table" id="ot-table" style="font-size: 12">
+                    <tbody>
+                        <tr>
+                            <th>Date</th>
+                            <th>Start</th>
+                            <th>Ends</th>
+                            <th>Description</th>
+                            <th>Total</th>
+                        </tr>
+                    </tbody>
+
+                    </table>
                  </div>
                </div>
              </div>
@@ -78,7 +78,7 @@
            <div class="panel panel-primary">
             <div class="panel-heading">
               <h4 class="panel-title" style="text-align: left;">
-                  Add Overtime <span style="color:red; font-weight: bold">LIVE!</span>
+                  Add Overtime <span style="color:red; font-weight: bold">LIVE!</span> <span class="glyphicon glyphicon-play" id="play" style="display: none; margin-left: 20px; color:red;"></span><span class="glyphicon glyphicon-pause" id="pause" style="display: none; margin-left: 20px; color:red;"></span><span class="glyphicon glyphicon-stop" id="stop" style="display: none; margin-left: 20px; color:red;"></span>
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" style="float:right;"><span class="glyphicon glyphicon-plus"></span></a>
               </h4>
             </div>
@@ -94,18 +94,15 @@
                     <button class='btn btn-danger remove-timer-btn hidden'>Remove Timer</button>
                 </div>
                 <div class='col-md-4'>
-
+                Total OT Time:<br>
+                    <div id="live-timer"></div>
                 </div>
               </div>
             </div>
           </div>
          </div>
-
-
-
-
     </div>
-    <div class="col-md-5">
+    <div class="col-md-3">
     <div class="panel panel-primary">
 
           <div class="panel-body">
@@ -118,6 +115,26 @@
 <script>
 var dateToday = new Date();
 var hasTimer = false;
+
+$("#add-ot").click(function(){
+  var ot_date = $("#basic_example_date").val();
+  var ot_time_in = $("#basic_example_1").val();
+  var ot_time_out = $("#basic_example_2").val();
+  var ot_description = $("#basic_example_description").val();
+    if(ot_date != '' && ot_time_in != '' && ot_time_out != '' && ot_description != ''){
+        $("#ot-table tr:last").after(
+                                    "<tr>"+
+                                        "<td>"+ ot_date +"</th>"+
+                                        "<td>"+ ot_time_in +"</th>"+
+                                        "<td>"+ ot_time_out +"</th>"+
+                                        "<td>"+ ot_description +"</th>"+
+                                    "</tr>"
+        );
+    }
+});
+$("#basic_example_date").datepicker({
+    dateFormat:'yy-mm-dd'
+});
 $('#basic_example_1').timepicker({
         timeFormat: 'hh:mm:ss tt',
         showSecond:true
@@ -135,6 +152,10 @@ $('.start-timer-btn').on('click', function(){
     $('.timer').timer();
     $(this).addClass('hidden');
     $('.pause-timer-btn, .remove-timer-btn').removeClass('hidden');
+    $("#play").show();
+    $("#pause").hide();
+    $("#stop").hide();
+
 });
 
 /*
@@ -144,6 +165,9 @@ $('.resume-timer-btn').on('click', function(){
     $('.timer').timer('resume');
     $(this).addClass('hidden');
     $('.pause-timer-btn, .remove-timer-btn').removeClass('hidden');
+    $("#play").show();
+    $("#pause").hide();
+    $("#stop").hide();
 });
 
 
@@ -154,17 +178,33 @@ $('.pause-timer-btn').on('click', function(){
     $('.timer').timer('pause');
     $(this).addClass('hidden');
     $('.resume-timer-btn').removeClass('hidden');
+    $("#play").hide();
+    $("#pause").show();
+    $("#stop").hide();
 });
 
 /*
     Remove timer
 */
 $('.remove-timer-btn').on('click', function(){
+    var d = new Date();
+
+    var month = d.getMonth()+1;
+    var day = d.getDate();
+
+    var output = d.getFullYear() + '/' +
+        (month<10 ? '0' : '') + month + '/' +
+        (day<10 ? '0' : '') + day;
+
     hasTimer = false;
     $('.timer').timer('remove');
     $(this).addClass('hidden');
     $('.start-timer-btn').removeClass('hidden');
     $('.pause-timer-btn, .resume-timer-btn').addClass('hidden');
+    $("#play").hide();
+    $("#pause").hide();
+    $("#stop").show();
+    $("#live-timer").html(output+': '+$('.timer').val());
 });
 
 /*
@@ -178,7 +218,17 @@ $('.timer').on('focus', function(){
     Additional blur event for this demo
 */
 $('.timer').on('blur', function(){
-    if(hasTimer) $('.resume-timer-btn').click();
+    if(hasTimer){
+        $('.resume-timer-btn').click();
+        $("#play").hide();
+        $("#pause").show();
+        $("#stop").hide();
+    }
+},function(){
+    $("#play").show();
+    $("#pause").hide();
+    $("#stop").hide();
+    $('.resume-timer-btn').click();
 });
 </script>
 
