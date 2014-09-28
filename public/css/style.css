@@ -5,6 +5,56 @@
     margin-left: 15%;
     border-radius: 8px;
 }
+.banner{
+    margin-top:-20px;
+    width: 100%;
+
+    left:0px;
+    position: absolute;
+    z-index: -1;
+}
+.testi-image{
+    width: 200px;
+    height: 200px;
+    background: red;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 100px;
+    border:5px solid darkgray;
+    float: left;
+}
+.quotes-wrapper{
+    margin: 50px auto;
+    border-radius: 10px;
+    color: black;
+    width:50%;
+    height: 230px;
+    /*Transparent*/
+    background: rgb(255, 255, 255) transparent;
+    /* RGBa with 0.6 opacity */
+    background: rgba(255, 255, 255, .8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+
+    text-align: right;
+}
+blockquote{
+    border-left: none;
+    height: 190px;
+    font-style: italic;
+    font-family: 'Ubuntu', sans-serif;
+    position: relative;
+
+
+}
+blockquote p:nth-child(1){
+    font-size: 30px;
+}
+blockquote p:nth-child(2){
+    font-size: 30px;
+}
 .region{
     margin-top:20px;
 }
@@ -67,3 +117,27 @@
 .ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
 .ui-timepicker-rtl dl dt{ float: right; clear: right; }
 .ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
+
+@media screen and (max-width:1201px){
+    .quotes-wrapper{
+
+        margin-top: 1px;
+        height: 270px;
+        width: 70%;
+    }
+    blockquote p:nth-child(1){
+        /*font-size: 20px;*/
+    }
+    blockquote p:nth-child(2){
+        /*font-size: 10px;*/
+    }
+}
+@media screen and (max-width:991px){
+    .quotes-wrapper{
+
+        margin-top: -11px;
+        height: 220px;
+        width: 100%;
+    }
+
+}

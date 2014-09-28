@@ -21,8 +21,30 @@
 
 @stop
 @section('content')
-<!-- body contents -->
+<div class="container">
+
+{{HTML::image('images/banner1.jpg',NULL,['class' =>'banner hidden-xs']);}}
+<div class="quotes-wrapper hidden-xs">
+    <div class="quotes">
+        <blockquote>
+        {{HTML::image('images/testi-images/raymund.jpg',NULL,['class' =>'testi-image']);}}
+        <p><span>“</span>Very Awesome,<br> I can now track my overtime with no worries... <span>”</span></p>
+        <p>— Raymund Vincent Ylaya</p>
+        </blockquote>
+
+        <blockquote>
+        {{HTML::image('images/testi-images/raymund.jpg',NULL,['class' =>'testi-image']);}}
+        <p><span>“</span>I will recommend this to my friends and co-workers.  <span>”</span></p>
+        <p>— Leomar Senanin</p>
+        </blockquote>
+
+    </div><!-- .quotes -->
+</div>
+
+</div>
 @stop
 @section('footer')
-<!-- footer contents -->
+<script>
+$('.quotes').quovolver();
+</script>
 @stop

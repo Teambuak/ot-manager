@@ -6,6 +6,10 @@
 
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+   <!-- Google Fonts -->
+   <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
     {{ HTML::style('css/style.css'); }}
 
@@ -50,6 +54,7 @@
         <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
         {{HTML::script('js/jquery-ui-timepicker-addon.js')}}
         {{HTML::script('js/timer.jquery.js')}}
+        {{HTML::script('js/jquery.quovolver.min.js')}}
 
         @yield('footer')
     </footer>
