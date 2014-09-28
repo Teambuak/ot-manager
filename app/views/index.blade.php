@@ -27,15 +27,15 @@
 <div class="quotes-wrapper hidden-xs">
     <div class="quotes">
         <blockquote>
-        {{HTML::image('images/testi-images/raymund.jpg',NULL,['class' =>'testi-image']);}}
+        {{HTML::image('images/testi-images/professional1.jpg',NULL,['class' =>'testi-image']);}}
         <p><span>“</span>Very Awesome,<br> I can now track my overtime with no worries... <span>”</span></p>
-        <p>— Raymund Vincent Ylaya</p>
+        <p>— Larry G.</p>
         </blockquote>
 
         <blockquote>
-        {{HTML::image('images/testi-images/raymund.jpg',NULL,['class' =>'testi-image']);}}
+        {{HTML::image('images/testi-images/professional2.jpg',NULL,['class' =>'testi-image']);}}
         <p><span>“</span>I will recommend this to my friends and co-workers.  <span>”</span></p>
-        <p>— Leomar Senanin</p>
+        <p>— Joseph S.</p>
         </blockquote>
 
     </div><!-- .quotes -->
