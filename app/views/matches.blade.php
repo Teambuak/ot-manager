@@ -48,7 +48,7 @@
                        <span class="input-group-addon" ><span class="glyphicon glyphicon-calendar"></span></span>
                      </div><br>
                      <div class="input-group time">
-                        <input type="text" class="form-control" id="basic_example_3" placeholder="Monthly Salary">
+                        <input type="password" class="form-control" id="basic_example_3" placeholder="Monthly Salary">
                         <span class="input-group-addon" ><span class="glyphicon glyphicon-calendar"></span></span>
                      </div><br>
                      <div class="input-group time">
@@ -70,7 +70,7 @@
                             <th>Start</th>
                             <th>Ends</th>
                             <th>Description</th>
-                            <th>Total</th>
+                            <th>Total OT</th>
                         </tr>
                     </tbody>
 
@@ -209,9 +209,14 @@ $("#add-ot").click(function(){
                                         "<td>"+ ot_time_in +"</th>"+
                                         "<td>"+ ot_time_out +"</th>"+
                                         "<td>"+ ot_description +"</th>"+
-                                        "<td>"+ total_ot_salary.toFixed(2) +"</th>"+
+                                        "<td>"+ total_ot_salary.toFixed(2) +"( "+ total_ot_hours +" hrs."+ total_ot_min+" min."+ total_ot_sec +"secs.)"+"</th>"+
                                     "</tr>"
         );
+         ot_date = $("#basic_example_date").val('');
+         ot_time_in = $("#basic_example_1").val('');
+         ot_time_out = $("#basic_example_2").val('');
+         ot_description = $("#basic_example_description").val('');
+         salary = $("#basic_example_3").val('');
     }
 });
 $("#basic_example_date").datepicker({
